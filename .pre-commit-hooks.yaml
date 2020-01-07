@@ -24,7 +24,7 @@
 - id: tflint
   name: tflint
   description: TFLint is a Terraform linter focused on possible errors, best practices, etc. (Terraform >= 0.12)
-  entry: hooks/tflint.sh
+  entry: pre_commit_hooks/tflint.sh
   language: script
   files: \.tf$
   exclude: \.+.terraform\/.*$
