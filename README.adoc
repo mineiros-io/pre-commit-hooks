@@ -56,3 +56,12 @@ pre-commit run terraform-validate --all-files
 
 pre-commit run --all-files
 ```
+
+=== Contribute
+
+All `*.sh` files inside pre_commit_hooks need to be marked as executable. Otherwise the pre-commot hooks won't be executable
+by default. You apply the flag to all `*.sh` files with the following command:
+
+```
+find pre_commit_hooks/ -type f -iname "*.sh" -exec chmod +x {} \;
+```
