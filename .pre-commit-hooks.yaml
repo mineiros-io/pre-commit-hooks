@@ -1,5 +1,6 @@
 # Configuring our pre-commit hooks to be used with pre-commit: http://pre-commit.com/
 
+# https://www.terraform.io/docs/commands/fmt.html
 - id: terraform-fmt
   name: Terraform fmt
   description: The terraform fmt command is used to rewrite Terraform configuration files to a canonical format and style. This command applies a subset of the Terraform language style conventions, along with other minor adjustments for readability.
@@ -9,6 +10,7 @@
   exclude: \.+.terraform\/.*$
   require_serial: true
 
+# https://www.terraform.io/docs/commands/validate.html
 - id: terraform-validate
   name: Terraform validate
   description: The terraform validate command validates all Terraform configuration files, referring only to the configuration and not accessing any remote services such as remote state, provider APIs, etc.
@@ -18,9 +20,10 @@
   exclude: \.+.terraform\/.*$
   require_serial: true
 
+# https://github.com/terraform-linters/tflint
 - id: tflint
   name: tflint
-  description: Linter for Terraform source code
+  description: TFLint is a Terraform linter focused on possible errors, best practices, etc. (Terraform >= 0.12)
   entry: hooks/tflint.sh
   language: script
   files: \.tf$
