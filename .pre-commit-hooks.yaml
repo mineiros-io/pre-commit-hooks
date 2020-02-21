@@ -1,5 +1,9 @@
 # Configuring our pre-commit hooks to be used with pre-commit: http://pre-commit.com/
 
+# ---------------------------------------------------------------------------------------------------------------------
+# Terraform specific hooks
+# ---------------------------------------------------------------------------------------------------------------------
+
 # https://www.terraform.io/docs/commands/fmt.html
 - id: terraform-fmt
   name: Terraform fmt
@@ -28,3 +32,16 @@
   language: script
   files: \.tf$
   exclude: \.+.terraform\/.*$
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Go specific hooks
+# ---------------------------------------------------------------------------------------------------------------------
+
+# https://golang.org/cmd/gofmt/
+- id: gofmt
+  name: gofmt
+  description: Gofmt is a tool that automatically formats Go source code.
+  entry: pre_commit_hooks/go/gofmt.sh
+  language: script
+  files: \.go$
+  exclude: vendor\/.*$
