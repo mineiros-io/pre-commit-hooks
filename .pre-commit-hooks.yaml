@@ -54,3 +54,12 @@
   language: script
   files: \.go$
   exclude: vendor\/.*$
+
+# https://github.com/golang/lint
+- id: golint
+  name: golint
+  description: Golint is a linter for Go source code.
+  entry: pre_commit_hooks/go/golint.sh
+  language: script
+  files: \.go$
+  exclude: vendor\/.*$
