@@ -45,3 +45,12 @@
   language: script
   files: \.go$
   exclude: vendor\/.*$
+
+# https://godoc.org/golang.org/x/tools/cmd/goimports
+- id: goimports
+  name: goimports
+  description: Command goimports updates your Go import lines, adding missing ones and removing unreferenced ones.
+  entry: pre_commit_hooks/go/goimports.sh
+  language: script
+  files: \.go$
+  exclude: vendor\/.*$
