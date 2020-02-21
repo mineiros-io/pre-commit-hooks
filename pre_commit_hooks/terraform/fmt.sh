@@ -1,4 +1,5 @@
 #!/bin/bash
+
 set -e
 
 # Make environment variables working in OSX GUI apps such as Github Desktop
