@@ -7,24 +7,26 @@
 # pre-commit-hooks
 
 This repository is a collection of Git hooks to be used with the
-[pre-commit]([pre-commit hooks](https://pre-commit.com/)) framework.
+[pre-commit](https://pre-commit.com/) framework.
 
 Currently, the following hooks are supported:
 
 **Terraform**
-- terraform-fmt: The terraform fmt command is used to rewrite Terraform configuration `*.tf` files to a canonical format and style.
-- terraform-validate: The terraform validate command validates all Terraform configuration `*.tf` files, referring only to the configuration and not accessing any remote services such as remote state, provider APIs, etc.
-- tflint: TFLint is a Terraform linter focused on possible errors, best practices, etc. (Terraform >= 0.12). Applied to all Terraform configuration `*.tf` files.
+- terraform-fmt: The terraform fmt command is used to rewrite Terraform configuration `*.tf` files to a canonical format
+and style.
+- terraform-validate: The terraform validate command validates all Terraform configuration `*.tf` files, referring only
+to the configuration and not accessing any remote services such as remote state, provider APIs, etc.
+- tflint: TFLint is a Terraform linter focused on possible errors, best practices, etc. (Terraform >= 0.12). Applied to
+all Terraform configuration `*.tf` files.
 
 **Go**
-- gofmt: go fmt is a tool that automatically formats `*.go` files to canonical format and style..
-- goimports: The goimports command updates import lines in `*.go` files, adding missing ones and removing unreferenced ones.        
-- golint: Golint is a linter that formats your `*.go` files.
+- gofmt: go fmt is a tool that automatically formats Go `*.go` files to canonical format and style..
+- goimports: The goimports command updates import lines in Go `*.go` files, adding missing ones and removing
+unreferenced ones.
+- golint: Golint is a linter that formats your Go `*.go` files.
 
 ## Installation & Dependencies
-Install [pre-commit](https://pre-commit.com/). E.G. `brew install pre-commit`
-
-
+Install [pre-commit](https://pre-commit.com/). E.g. `brew install pre-commit`
 
 ## Usage
 Create a `.pre-commit-config.yaml` inside your repositories and add the desired list of hooks.
@@ -62,7 +64,7 @@ pre-commit run terraform-validate --all-files
 ```
 
 ### Pre-Commit and Continuous Integration
-Might be also worth to run pre-commit as part of CI pipeline/build as there will be always that one rebel in the team
+It's recommended to run pre-commit as part of CI pipeline/build as there will be always that one rebel in the team
 who won't run them locally. On CI, replace `pre-commit install` by `pre-commit run -a`. We don't need to install it on
 CI as it'll be a one-shot operation. run -a will run the hooks over all files (taking into account excludes if
 configured).
@@ -75,7 +77,6 @@ executable by default. You apply the flag to all `*.sh` files with the following
 ``` bash
 find pre_commit_hooks/ -type f -iname "*.sh" -exec chmod +x {} \;
 ```
-
 
 ## About Mineiros
 Mineiros is a [DevOps as a Service](https://mineiros.io/) company based in Berlin, Germany. We offer commercial support
@@ -101,4 +102,3 @@ This module is licensed under the Apache License Version 2.0, January 2004.
 Please see [LICENSE](https://github.com/mineiros-io/pre-commit-hooks/blob/master/LICENSE) for full details.
 
 Copyright &copy; 2020 Mineiros
-s
