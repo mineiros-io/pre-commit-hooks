@@ -6,4 +6,6 @@ set -e
 # https://stackoverflow.com/q/135688/483528
 export PATH=$PATH:/usr/local/bin
 
-terraform fmt -recursive
+for file in "$@"; do
+  go fmt  "./$(dirname "$file")"
+done

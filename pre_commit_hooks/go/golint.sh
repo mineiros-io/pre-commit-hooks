@@ -6,4 +6,12 @@ set -e
 # https://stackoverflow.com/q/135688/483528
 export PATH=$PATH:/usr/local/bin
 
-terraform fmt -recursive
+exit_status=0
+
+for file in "$@"; do
+    if ! golint -set_exit_status "$file"; then
+        exit_status=1
+    fi
+done
+
+exit ${exit_status}

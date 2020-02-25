@@ -1,4 +1,8 @@
-# Configuring our pre-commit hooks to be used with pre-commit: http://pre-commit.com/
+# Configuring our pre-commit hooks to be used with pre-commit: https://pre-commit.com/
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Terraform specific hooks
+# ---------------------------------------------------------------------------------------------------------------------
 
 # https://www.terraform.io/docs/commands/fmt.html
 - id: terraform-fmt
@@ -28,3 +32,34 @@
   language: script
   files: \.tf$
   exclude: \.+.terraform\/.*$
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Golang specific hooks
+# ---------------------------------------------------------------------------------------------------------------------
+
+# https://golang.org/cmd/gofmt
+- id: gofmt
+  name: gofmt
+  description: Gofmt is a tool that automatically formats Go source code.
+  entry: pre_commit_hooks/go/gofmt.sh
+  language: script
+  files: \.go$
+  exclude: vendor\/.*$
+
+# https://godoc.org/golang.org/x/tools/cmd/goimports
+- id: goimports
+  name: goimports
+  description: Command goimports updates your Go import lines, adding missing ones and removing unreferenced ones.
+  entry: pre_commit_hooks/go/goimports.sh
+  language: script
+  files: \.go$
+  exclude: vendor\/.*$
+
+# https://github.com/golang/lint
+- id: golint
+  name: golint
+  description: Golint is a linter for Go source code.
+  entry: pre_commit_hooks/go/golint.sh
+  language: script
+  files: \.go$
+  exclude: vendor\/.*$
