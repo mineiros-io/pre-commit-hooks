@@ -13,20 +13,23 @@ This repository is a collection of Git hooks to be used with the
 Currently, the following hooks are supported:
 
 **Terraform**
-- terraform-fmt: The terraform fmt command is used to rewrite Terraform configuration `*.tf` files to a canonical format
-and style.
-- terraform-validate: The terraform validate command validates all Terraform configuration `*.tf` files, referring only
-to the configuration and not accessing any remote services such as remote state, provider APIs, etc.
-- tflint: TFLint is a Terraform linter focused on possible errors, best practices, etc. (Terraform >= 0.12). Applied to
-all Terraform configuration `*.tf` files.
+- [terraform-fmt](https://www.terraform.io/docs/commands/fmt.html): The terraform fmt command is used to rewrite
+  Terraform configuration `*.tf` files to a canonical format and style.
+- [terraform-validate](https://www.terraform.io/docs/commands/validate.html): The terraform validate command validates
+  all Terraform configuration `*.tf` files, referring only to the configuration and not accessing any remote services
+  such as remote state, provider APIs, etc.
+- [tflint](https://github.com/terraform-linters/tflint): TFLint is a Terraform linter focused on possible errors, best
+  practices, etc. (Terraform >= 0.12). Applied to all Terraform configuration `*.tf` files.
 
 **Go**
-- gofmt: go fmt is a tool that automatically formats Go `*.go` files to canonical format and style.
-- goimports: The goimports command updates import lines in Go `*.go` files, adding missing ones and removing
-unreferenced ones.
-- golint: Golint is a linter that formats your Go `*.go` files.
-- golangci-lint: GolangCI-Lint is a linters aggregator. It's fast: on average 5 times faster than gometalinter.
-  It's easy to integrate and use, has nice output and has a minimum number of false positives.
+- [gofmt](https://golang.org/cmd/gofmt/): go fmt is a tool that automatically formats Go `*.go` files to canonical
+  format and style.
+- [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports): The goimports command updates import lines in Go
+  `*.go` files, adding missing ones and removing unreferenced ones.
+- [golint](https://github.com/golang/lint): Golint is a linter that formats your Go `*.go` files.
+- [golangci-lint](https://github.com/golangci/golangci-lint): GolangCI-Lint is a linters aggregator.
+  It's fast: on average 5 times faster than gometalinter. It's easy to integrate and use, has nice output and has a
+  minimum number of false positives.
 
 ## Installation & Dependencies
 Install [pre-commit](https://pre-commit.com/). E.g. `brew install pre-commit`
