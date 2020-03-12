@@ -63,3 +63,12 @@
   language: script
   files: \.go$
   exclude: vendor\/.*$
+
+# https://github.com/golangci/golangci-lint
+- id: golangci-lint
+  name: golangci-lint
+  description: Linters Runner for Go.
+  entry: pre_commit_hooks/go/golangci-lint.sh
+  language: script
+  files: \.go$
+  exclude: vendor\/.*$

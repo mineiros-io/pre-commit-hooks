@@ -1,6 +1,7 @@
 <img src="https://i.imgur.com/t8IkKoZl.png" width="200"/>
 
 [![Maintained by Mineiros.io](https://img.shields.io/badge/maintained%20by-mineiros.io-00607c.svg)](https://www.mineiros.io/ref=pre-commit-hooks)
+[![Build Status](https://mineiros.semaphoreci.com/badges/build-tools/branches/master.svg?style=shields)](https://mineiros.semaphoreci.com/projects/build-tools)
 [![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/mineiros-io/pre-commit-hooks.svg?label=latest&sort=semver)](https://github.com/mineiros-io/pre-commit-hooks/releases)
 [![License](https://img.shields.io/badge/License-Apache%202.0-brightgreen.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -20,10 +21,12 @@ to the configuration and not accessing any remote services such as remote state,
 all Terraform configuration `*.tf` files.
 
 **Go**
-- gofmt: go fmt is a tool that automatically formats Go `*.go` files to canonical format and style..
+- gofmt: go fmt is a tool that automatically formats Go `*.go` files to canonical format and style.
 - goimports: The goimports command updates import lines in Go `*.go` files, adding missing ones and removing
 unreferenced ones.
 - golint: Golint is a linter that formats your Go `*.go` files.
+- golangci-lint: GolangCI-Lint is a linters aggregator. It's fast: on average 5 times faster than gometalinter.
+  It's easy to integrate and use, has nice output and has a minimum number of false positives.
 
 ## Installation & Dependencies
 Install [pre-commit](https://pre-commit.com/). E.g. `brew install pre-commit`
