@@ -6,6 +6,4 @@ set -e
 # https://stackoverflow.com/q/135688/483528
 export PATH=$PATH:/usr/local/bin
 
-for file in "$@"; do
-  goimports -l -e -w "$(dirname "$file")"
-done
+golangci-lint run "$@"
