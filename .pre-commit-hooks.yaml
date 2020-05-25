@@ -76,9 +76,11 @@
 # ---------------------------------------------------------------------------------------------------------------------
 # GNU Make specific hooks
 # ---------------------------------------------------------------------------------------------------------------------
-  - id: phony-targets
+
+# Validate targets that are marked as PHONY
+- id: phony-targets
   name: phony-targets
   description: Linter for detecting targets marked as PHONY that don't exist.
   entry: pre_commit_hooks/make/phony-targets.sh
   language: script
-  files: \(Makefile|.mak|.mk)$
+  files: \(Makefile|Makefile.*|.mak|.mk)$
