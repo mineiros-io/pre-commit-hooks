@@ -17,8 +17,7 @@ validate_phony_targets() {
         # isn't supported in OSX / BSD sed.
         # We check the exact match as a workaround instead.
         # If the pattern doesn't match that means that the target doesn't exist.
-        if test -z "$(sed -ne "s#^\(${target}:\).*#\1#p" <<< $source)"
-        then
+        if test -z "$(sed -ne "s#^\(${target}:\).*#\1#p" <<< $source)"; then
             echo "No target found for PHONY target: '$target'"
             EXITCODE=1
         fi
@@ -31,5 +30,3 @@ for file in "$@"; do
 done
 
 exit $EXITCODE
-
-
