@@ -31,6 +31,10 @@ Currently, the following hooks are supported:
   It's fast: on average 5 times faster than gometalinter. It's easy to integrate and use, has nice output and has a
   minimum number of false positives.
 
+**GNU Make**
+- [phony-targets](https://github.com/mineiros-io/pre-commit-hooks/blob/master/pre_commit_hooks/make/phony-targets.sh):
+  This hook validates if targets that are marked as `PHONY` actually exist.
+
 ## Installation & Dependencies
 Install [pre-commit](https://pre-commit.com/). E.g. `brew install pre-commit`
 
@@ -49,6 +53,7 @@ repos:
       - id: gofmt
       - id: goimports
       - id: golint
+      - id: phony-targets
 ```
 
 Once you created the configuration file inside your repository, you must run `pre-commit install` to activate the hooks.
