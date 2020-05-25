@@ -25,7 +25,7 @@ validate_phony_targets() {
 }
 
 for file in "$@"; do
-    SOURCE="$(cat $file)"
+    SOURCE=$(make -npq -f "${file}" | grep -E $'^[^ \t#][^:#]*:')
     validate_phony_targets "$SOURCE"
 done
 
