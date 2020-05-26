@@ -45,7 +45,18 @@ Currently, the following hooks are supported:
 
 ## Installation & Dependencies
 
-Install [pre-commit](https://pre-commit.com/). E.g. `brew install pre-commit`
+1. Install [pre-commit](https://pre-commit.com/). E.g. `brew install pre-commit`
+1. Install [Terraform](https://www.terraform.io/), [TFLint](https://github.com/terraform-linters/tflint),
+  [Go](https://golang.org/), [markdown-link-check](https://github.com/tcort/markdown-link-check). E.g
+
+    ``` shell script
+      brew install terraform \
+          tflint \
+          go \
+          golangci/tap/golangci-lint \
+          shellcheck && \
+          npm install -g markdown-link-check                                                                                                           c 
+    ```
 
 ## Usage
 
@@ -63,7 +74,9 @@ repos:
       - id: gofmt
       - id: goimports
       - id: golint
+      - id: golangci-lint
       - id: phony-targets
+      - id: markdown-link-check
 ```
 
 Once you created the configuration file inside your repository, you must run `pre-commit install` to activate the hooks.
