@@ -9,7 +9,6 @@ if ! command -v markdown-link-check; then
 fi
 
 TMP_CONFIG="$(mktemp)"
-echo $TMP_CONFIG
 trap "rm -f $TMP_CONFIG;" EXIT
 
 cat > "$TMP_CONFIG" <<EOF
