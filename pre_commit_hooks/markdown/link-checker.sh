@@ -2,16 +2,16 @@
 
 set -e
 
-if ! command -v markdown-link-check; then
-  >&2 echo "markdown-link-check is not available on this system."
-  >&2 echo "Please install it by running 'npm install -g markdown-link-check'"
+if ! command -v markdown-link-check >/dev/null 2>&1; then
+  echo >&2 "markdown-link-check is not available on this system."
+  echo >&2 "Please install it by running 'npm install -g markdown-link-check'"
   exit 1
 fi
 
 TMP_CONFIG="$(mktemp)"
 trap "rm -f $TMP_CONFIG;" EXIT
 
-cat > "$TMP_CONFIG" <<EOF
+cat >"$TMP_CONFIG" <<EOF
 {
   "replacementPatterns": [
     {
