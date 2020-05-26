@@ -12,7 +12,8 @@ This repository is a collection of Git hooks to be used with the
 
 Currently, the following hooks are supported:
 
-**Terraform**
+## Terraform
+
 - [terraform-fmt](https://www.terraform.io/docs/commands/fmt.html): The terraform fmt command is used to rewrite
   Terraform configuration `*.tf` files to a canonical format and style.
 - [terraform-validate](https://www.terraform.io/docs/commands/validate.html): The terraform validate command validates
@@ -21,7 +22,8 @@ Currently, the following hooks are supported:
 - [tflint](https://github.com/terraform-linters/tflint): TFLint is a Terraform linter focused on possible errors, best
   practices, etc. (Terraform >= 0.12). Applied to all Terraform configuration `*.tf` files.
 
-**Go**
+## Go
+
 - [gofmt](https://golang.org/cmd/gofmt/): Go fmt is a tool that automatically formats Go `*.go` files to canonical
   format and style.
 - [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports): The goimports command updates import lines in Go
@@ -31,19 +33,22 @@ Currently, the following hooks are supported:
   It's fast: on average 5 times faster than gometalinter. It's easy to integrate and use, has nice output and has a
   minimum number of false positives.
 
-**GNU Make**
+## GNU Make
+
 - [phony-targets](https://github.com/mineiros-io/pre-commit-hooks/blob/master/pre_commit_hooks/make/phony-targets.sh):
   This hook validates if targets that are marked as `PHONY` actually exist.
 
-**GNU Make**
+## Markdown
+
 - [markdown-link-check](https://github.com/tcort/markdown-link-check): Checks that all of the hyperlinks in a markdown
   text to determine if they are alive or dead.
 
-
 ## Installation & Dependencies
+
 Install [pre-commit](https://pre-commit.com/). E.g. `brew install pre-commit`
 
 ## Usage
+
 Create a `.pre-commit-config.yaml` inside your repositories and add the desired list of hooks.
 Please see the [documentation](https://pre-commit.com/#usage) for further information.
 
@@ -70,16 +75,19 @@ It's usually a good idea to run the hooks against all of the files when adding n
 run on the changed files during git hooks).
 
 #### Example: Run All Hooks
+
 ``` shell script
 pre-commit run --all-files
 ``` 
 
 #### Example: Run A Specific Hook
+
 ``` shell script
 pre-commit run terraform-validate --all-files
 ```
 
 ### Pre-Commit and Continuous Integration
+
 It's recommended to run pre-commit as part of CI pipeline/build as there will be always that one rebel in the team
 who won't run them locally. On CI, replace `pre-commit install` by `pre-commit run -a`. We don't need to install it on
 CI as it'll be a one-shot operation. run -a will run the hooks over all files (taking into account excludes if
@@ -95,25 +103,29 @@ find pre_commit_hooks/ -type f -iname "*.sh" -exec chmod +x {} \;
 ```
 
 ## About Mineiros
+
 Mineiros is a [DevOps as a Service](https://mineiros.io/) company based in Berlin, Germany. We offer commercial support
 for all of our projects and encourage you to reach out if you have any questions or need help.
 Feel free to send us an email at [hello@mineiros.io](mailto:hello@mineiros.io).
 
 We can also help you with:
-- Terraform Modules for all types of infrastructure such as VPC's, Docker clusters,
-databases, logging and monitoring, CI, etc.
+
+- Terraform Modules for all types of infrastructure such as VPC's, Docker clusters, databases, logging and monitoring, CI, etc.
 - Consulting & Training on AWS, Terraform and DevOps.
 
 ## Reporting Issues
+
 We use GitHub [Issues](https://github.com/mineiros-io/pre-commit-hooks/issues)
 to track community reported issues and missing features.
 
 ## Contributing
+
 Contributions are always encouraged and welcome! For the process of accepting changes, we use
 [Pull Requests](https://github.com/mineiros-io/pre-commit-hooks/pulls). If you’d like more information, please
 see our [Contribution Guidelines](https://github.com/mineiros-io/pre-commit-hooks/blob/master/CONTRIBUTING.md).
 
 ## License
+
 This module is licensed under the Apache License Version 2.0, January 2004.
 Please see [LICENSE](https://github.com/mineiros-io/pre-commit-hooks/blob/master/LICENSE) for full details.
 
