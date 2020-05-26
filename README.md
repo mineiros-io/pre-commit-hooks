@@ -22,7 +22,7 @@ Currently, the following hooks are supported:
   practices, etc. (Terraform >= 0.12). Applied to all Terraform configuration `*.tf` files.
 
 **Go**
-- [gofmt](https://golang.org/cmd/gofmt/): go fmt is a tool that automatically formats Go `*.go` files to canonical
+- [gofmt](https://golang.org/cmd/gofmt/): Go fmt is a tool that automatically formats Go `*.go` files to canonical
   format and style.
 - [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports): The goimports command updates import lines in Go
   `*.go` files, adding missing ones and removing unreferenced ones.
@@ -34,6 +34,11 @@ Currently, the following hooks are supported:
 **GNU Make**
 - [phony-targets](https://github.com/mineiros-io/pre-commit-hooks/blob/master/pre_commit_hooks/make/phony-targets.sh):
   This hook validates if targets that are marked as `PHONY` actually exist.
+
+**GNU Make**
+- [markdown-link-check](https://github.com/tcort/markdown-link-check): Checks that all of the hyperlinks in a markdown
+  text to determine if they are alive or dead.
+
 
 ## Installation & Dependencies
 Install [pre-commit](https://pre-commit.com/). E.g. `brew install pre-commit`
