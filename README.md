@@ -35,6 +35,10 @@ Currently, the following hooks are supported:
 - [phony-targets](https://github.com/mineiros-io/pre-commit-hooks/blob/master/pre_commit_hooks/make/phony-targets.sh):
   This hook validates if targets that are marked as `PHONY` actually exist.
 
+**Bash**
+- [shellcheck](https://github.com/koalaman/shellcheck): ShellCheck is a GPLv3 tool that gives warnings and suggestions
+  for bash/sh shell scripts.
+
 ## Installation & Dependencies
 Install [pre-commit](https://pre-commit.com/). E.g. `brew install pre-commit`
 
