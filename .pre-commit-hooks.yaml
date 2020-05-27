@@ -91,8 +91,27 @@
     )$
 
 # ---------------------------------------------------------------------------------------------------------------------
+# Markdown specific hooks
+# ---------------------------------------------------------------------------------------------------------------------
+
+# https://github.com/tcort/markdown-link-check
+- id: markdown-link-check
+  name: markdown-link-check
+  description: Markdown-link-check checks all of the hyperlinks in a markdown text to determine if they are alive or dead.
+  entry: pre_commit_hooks/markdown/markdown-link-check.sh
+  language: script
+  files: \.md$
+  exclude: >
+    (?x)^(
+      .+\.vendor\/.*$|
+      .+\.terraform\/.*$|
+    )$
+
+# ---------------------------------------------------------------------------------------------------------------------
 # Bash specific hooks
 # ---------------------------------------------------------------------------------------------------------------------
+
+# https://github.com/koalaman/shellcheck
 - id: shellcheck
   name: shellcheck
   description: ShellCheck is a GPLv3 tool that gives warnings and suggestions for bash/sh shell scripts.
