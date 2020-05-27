@@ -55,7 +55,7 @@ Currently, the following hooks are supported:
           go \
           golangci/tap/golangci-lint \
           shellcheck && \
-          npm install -g markdown-link-check                                                                                                           c 
+          npm install -g markdown-link-check
     ```
 
 ## Usage
