@@ -5,11 +5,10 @@ set -e
 EXITCODE=0
 
 validate_phony_targets() {
-    local file
+    local file=$1
     local source
     local targets
 
-    file=$1
     source=$(make -npq -f "${file}" | grep -E '^.PHONY:')
     targets=$(sed -n 's#^.PHONY:\(.*\)#\1#p' <<<"${source}")
 
