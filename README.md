@@ -52,7 +52,8 @@ Currently, the following hooks are supported:
 
 1. Install [pre-commit](https://pre-commit.com/). E.g. `brew install pre-commit`
 1. Install [Terraform](https://www.terraform.io/), [TFLint](https://github.com/terraform-linters/tflint),
-  [Go](https://golang.org/), [markdown-link-check](https://github.com/tcort/markdown-link-check). E.g
+  [Go](https://golang.org/), [markdown-link-check](https://github.com/tcort/markdown-link-check),
+  [shellcheck](https://github.com/koalaman/shellcheck). E.g
 
     ``` shell script
       brew install terraform \
