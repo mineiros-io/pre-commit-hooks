@@ -6,8 +6,11 @@ EXITCODE=0
 
 validate_phony_targets() {
     local file=$1
-    local source=$(make -npq -f "${file}" | grep -E '^.PHONY:')
-    local targets=$(sed -n 's#^.PHONY:\(.*\)#\1#p' <<< "${source}")
+    local source
+    local targets
+
+    source=$(make -npq -f "${file}" | grep -E '^.PHONY:')
+    targets=$(sed -n 's#^.PHONY:\(.*\)#\1#p' <<<"${source}")
 
     for target in $targets; do
         # The q command for setting exit codes if a pattern doesn't match,
