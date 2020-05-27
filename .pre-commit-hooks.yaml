@@ -106,3 +106,20 @@
       .+\.vendor\/.*$|
       .+\.terraform\/.*$|
     )$
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Bash specific hooks
+# ---------------------------------------------------------------------------------------------------------------------
+
+# https://github.com/koalaman/shellcheck
+- id: shellcheck
+  name: shellcheck
+  description: ShellCheck is a GPLv3 tool that gives warnings and suggestions for bash/sh shell scripts.
+  entry: pre_commit_hooks/shell/shellcheck.sh
+  language: script
+  files: \.sh$
+  exclude: >
+    (?x)^(
+      .+\.vendor\/.*$|
+      .+\.terraform\/.*$|
+    )$

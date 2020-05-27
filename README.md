@@ -43,6 +43,11 @@ Currently, the following hooks are supported:
 - [markdown-link-check](https://github.com/tcort/markdown-link-check): Checks that all of the hyperlinks in a markdown
   text to determine if they are alive or dead.
 
+## Bash
+- [shellcheck](https://github.com/koalaman/shellcheck): ShellCheck is a GPLv3 tool that gives warnings and suggestions
+  for bash/sh shell scripts.
+
+
 ## Installation & Dependencies
 
 1. Install [pre-commit](https://pre-commit.com/). E.g. `brew install pre-commit`
