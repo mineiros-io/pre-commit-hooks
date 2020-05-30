@@ -44,32 +44,32 @@ Currently, the following hooks are supported:
   text to determine if they are alive or dead.
 
 ## Bash
+
 - [shellcheck](https://github.com/koalaman/shellcheck): ShellCheck is a GPLv3 tool that gives warnings and suggestions
   for bash/sh shell scripts.
-
 
 ## Installation & Dependencies
 
 1. Install [pre-commit](https://pre-commit.com/). E.g. `brew install pre-commit`
 1. Install [Terraform](https://www.terraform.io/), [TFLint](https://github.com/terraform-linters/tflint),
-  [Go](https://golang.org/), [markdown-link-check](https://github.com/tcort/markdown-link-check),
-  [shellcheck](https://github.com/koalaman/shellcheck). E.g
+   [Go](https://golang.org/), [markdown-link-check](https://github.com/tcort/markdown-link-check),
+   [shellcheck](https://github.com/koalaman/shellcheck). E.g
 
-    ``` shell script
-      brew install terraform \
-          tflint \
-          go \
-          golangci/tap/golangci-lint \
-          shellcheck && \
-          npm install -g markdown-link-check
-    ```
+   ```shell script
+     brew install terraform \
+         tflint \
+         go \
+         golangci/tap/golangci-lint \
+         shellcheck && \
+         npm install -g markdown-link-check
+   ```
 
 ## Usage
 
 Create a `.pre-commit-config.yaml` inside your repositories and add the desired list of hooks.
 Please see the [documentation](https://pre-commit.com/#usage) for further information.
 
-``` yaml
+```yaml
 repos:
   - repo: https://github.com/mineiros-io/pre-commit-hooks
     rev: <VERSION> # Check for the latest version: https://github.com/mineiros-io/pre-commit-hooks/releases
@@ -83,6 +83,7 @@ repos:
       - id: golangci-lint
       - id: phony-targets
       - id: markdown-link-check
+      - id: shellcheck
 ```
 
 Once you created the configuration file inside your repository, you must run `pre-commit install` to activate the hooks.
@@ -95,13 +96,13 @@ run on the changed files during git hooks).
 
 #### Example: Run All Hooks
 
-``` shell script
+```shell script
 pre-commit run --all-files
-``` 
+```
 
 #### Example: Run A Specific Hook
 
-``` shell script
+```shell script
 pre-commit run terraform-validate --all-files
 ```
 
@@ -117,7 +118,7 @@ configured).
 All `*.sh` files inside pre_commit_hooks need to be flagged as executable. Otherwise the pre-commit hooks won't be
 executable by default. You apply the flag to all `*.sh` files with the following command:
 
-``` bash
+```bash
 find pre_commit_hooks/ -type f -iname "*.sh" -exec chmod +x {} \;
 ```
 
