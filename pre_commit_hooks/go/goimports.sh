@@ -2,4 +2,6 @@
 
 set -e
 
-golangci-lint run "$@"
+for file in "$@"; do
+    goimports -l -w "$(dirname "$file")"
+done
