@@ -149,4 +149,4 @@ see our [Contribution Guidelines](https://github.com/mineiros-io/pre-commit-hook
 This module is licensed under the Apache License Version 2.0, January 2004.
 Please see [LICENSE](https://github.com/mineiros-io/pre-commit-hooks/blob/master/LICENSE) for full details.
 
-Copyright &copy; 2020 Mineiros
+Copyright &copy; 2020 Mineiros GmbH
