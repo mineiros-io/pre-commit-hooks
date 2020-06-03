@@ -10,9 +10,32 @@
 This repository is a collection of Git hooks to be used with the
 [pre-commit](https://pre-commit.com/) framework.
 
+- [Available Hooks](#available-hooks)
+  - [Terraform](#terraform)
+  - [Go](#go)
+  - [GNU Make](#gnu-make)
+  - [Markdown](#markdown)
+  - [Bash](#bash)
+- [Installation & Dependencies](#installation--dependencies)
+- [Usage](#usage)
+  - [Run](#run)
+    - [Example: Run All Hooks](#example-run-all-hooks)
+    - [Example: Run A Specific Hook](#example-run-a-specific-hook)
+  - [Pre-Commit and Continuous Integration](#pre-commit-and-continuous-integration)
+  - [Add Custom Hooks](#add-custom-hooks)
+- [Module Versioning](#module-versioning)
+  - [Backwards compatibility in `0.0.z` and `0.y.z` version](#backwards-compatibility-in-00z-and-0yz-version)
+- [About Mineiros](#about-mineiros)
+- [Reporting Issues](#reporting-issues)
+- [Contributing](#contributing)
+- [Makefile Targets](#makefile-targets)
+- [License](#license)
+
+## Available Hooks
+
 Currently, the following hooks are supported:
 
-## Terraform
+### Terraform
 
 - [terraform-fmt](https://www.terraform.io/docs/commands/fmt.html): The terraform fmt command is used to rewrite
   Terraform configuration `*.tf` files to a canonical format and style.
@@ -22,7 +45,7 @@ Currently, the following hooks are supported:
 - [tflint](https://github.com/terraform-linters/tflint): TFLint is a Terraform linter focused on possible errors, best
   practices, etc. (Terraform >= 0.12). Applied to all Terraform configuration `*.tf` files.
 
-## Go
+### Go
 
 - [gofmt](https://golang.org/cmd/gofmt/): Go fmt is a tool that automatically formats Go `*.go` files to canonical
   format and style.
@@ -33,17 +56,17 @@ Currently, the following hooks are supported:
   It's fast: on average 5 times faster than gometalinter. It's easy to integrate and use, has nice output and has a
   minimum number of false positives.
 
-## GNU Make
+### GNU Make
 
 - [phony-targets](https://github.com/mineiros-io/pre-commit-hooks/blob/master/pre_commit_hooks/make/phony-targets.sh):
   This hook validates if targets that are marked as `PHONY` actually exist.
 
-## Markdown
+### Markdown
 
 - [markdown-link-check](https://github.com/tcort/markdown-link-check): Checks that all of the hyperlinks in a markdown
   text to determine if they are alive or dead.
 
-## Bash
+### Bash
 
 - [shellcheck](https://github.com/koalaman/shellcheck): ShellCheck is a GPLv3 tool that gives warnings and suggestions
   for bash/sh shell scripts.
@@ -122,16 +145,33 @@ executable by default. You apply the flag to all `*.sh` files with the following
 find pre_commit_hooks/ -type f -iname "*.sh" -exec chmod +x {} \;
 ```
 
+## Module Versioning
+
+This Module follows the principles of [Semantic Versioning (SemVer)](https://semver.org/).
+
+Using the given version number of `MAJOR.MINOR.PATCH`, we apply the following constructs:
+
+1. Use the `MAJOR` version for incompatible changes.
+1. Use the `MINOR` version when adding functionality in a backwards compatible manner.
+1. Use the `PATCH` version when introducing backwards compatible bug fixes.
+
+### Backwards compatibility in `0.0.z` and `0.y.z` version
+
+- In the context of initial development, backwards compatibility in versions `0.0.z` is **not guaranteed** when `z` is
+  increased. (Initial development)
+- In the context of pre-release, backwards compatibility in versions `0.y.z` is **not guaranteed** when `y` is
+  increased. (Pre-release)
+
 ## About Mineiros
 
-Mineiros is a [DevOps as a Service](https://www.mineiros.io/&ref=pre-commit-hooks) company based in Berlin, Germany. We offer commercial support
+Mineiros is a [DevOps as a Service](https://mineiros.io/?ref=pre-commit-hooks) company based in Berlin, Germany. We offer commercial support
 for all of our projects and encourage you to reach out if you have any questions or need help.
 Feel free to send us an email at [hello@mineiros.io](mailto:hello@mineiros.io).
 
 We can also help you with:
 
-- Terraform Modules for all types of infrastructure such as VPC's, Docker clusters, databases, logging and monitoring, CI, etc.
-- Consulting & Training on AWS, Terraform and DevOps.
+- Terraform modules for all types of infrastructure such as VPCs, Docker clusters, databases, logging and monitoring, CI, etc.
+- Consulting & training on AWS, Terraform and DevOps
 
 ## Reporting Issues
 
@@ -141,8 +181,14 @@ to track community reported issues and missing features.
 ## Contributing
 
 Contributions are always encouraged and welcome! For the process of accepting changes, we use
-[Pull Requests](https://github.com/mineiros-io/pre-commit-hooks/pulls). If you’d like more information, please
+[Pull Requests](https://github.com/mineiros-io/pre-commit-hooks/pulls). If you'd like more information, please
 see our [Contribution Guidelines](https://github.com/mineiros-io/pre-commit-hooks/blob/master/CONTRIBUTING.md).
+
+## Makefile Targets
+
+This repository comes with a handy
+[Makefile](https://github.com/mineiros-io/pre-commit-hooks/blob/master/Makefile).
+Run `make help` to see details on each available target.
 
 ## License
 
