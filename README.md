@@ -47,14 +47,18 @@ Currently, the following hooks are supported:
 
 ### Go
 
+- [golangci-lint](https://github.com/golangci/golangci-lint): GolangCI-Lint is a linters aggregator.
+  It's fast: on average 5 times faster than gometalinter. It's easy to integrate and use, has nice output and has a
+  minimum number of false positives. An example configuration can be found in
+  [.golangci.example.yml](https://github.com/mineiros-io/pre-commit-hooks/blob/master/.golangci.example.yml).
+  
+#### The following hooks can be configured through golangci-lint and are therefore redundant when golangci-lint is being used
+  
 - [gofmt](https://golang.org/cmd/gofmt/): Go fmt is a tool that automatically formats Go `*.go` files to canonical
   format and style.
 - [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports): The goimports command updates import lines in Go
   `*.go` files, adding missing ones and removing unreferenced ones.
 - [golint](https://github.com/golang/lint): Golint is a linter that formats your Go `*.go` files.
-- [golangci-lint](https://github.com/golangci/golangci-lint): GolangCI-Lint is a linters aggregator.
-  It's fast: on average 5 times faster than gometalinter. It's easy to integrate and use, has nice output and has a
-  minimum number of false positives.
 
 ### GNU Make
 
