@@ -67,8 +67,8 @@ Currently, the following hooks are supported:
 
 ### Markdown
 
-- [markdown-link-check](https://github.com/tcort/markdown-link-check): Checks that all of the hyperlinks in a markdown
-  text to determine if they are alive or dead.
+- [markdown-link-check](https://github.com/tcort/markdown-link-check): Validates that all hyperlinks in a markdown
+  text alive or dead.
 
 ### Bash
 
@@ -104,13 +104,18 @@ repos:
       - id: terraform-fmt
       - id: terraform-validate
       - id: tflint
-      - id: gofmt
-      - id: goimports
-      - id: golint
       - id: golangci-lint
       - id: phony-targets
       - id: markdown-link-check
       - id: shellcheck
+
+      # The following hooks are redundant when golangci-lint is being. Our recommendation is to use golangci-lint
+      # as the main linter for go since it enables you to run all available linters in parallel.
+      # For details please see the example configuration https://github.com/mineiros-io/pre-commit-hooks/blob/master/.golangci.example.yml
+      # - id: gofmt
+      # - id: goimports
+      # - id: golint
+
 ```
 
 Once you created the configuration file inside your repository, you must run `pre-commit install` to activate the hooks.
