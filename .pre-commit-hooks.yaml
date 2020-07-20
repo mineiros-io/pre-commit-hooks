@@ -70,8 +70,9 @@
   description: Linters Runner for Go.
   entry: pre_commit_hooks/go/golangci-lint.sh
   language: script
-  files: \.go$
-  exclude: vendor\/.*$
+  types: [go]
+  # We can't invoke single files golangci-lint since it expects go packages instead of single files
+  pass_filenames: false
 
 # ---------------------------------------------------------------------------------------------------------------------
 # GNU Make specific hooks
