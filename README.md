@@ -58,7 +58,6 @@ Currently, the following hooks are supported:
   format and style.
 - [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports): The goimports command updates import lines in Go
   `*.go` files, adding missing ones and removing unreferenced ones.
-- [golint](https://github.com/golang/lint): Golint is a linter that formats your Go `*.go` files.
 
 ### GNU Make
 
@@ -114,7 +113,6 @@ repos:
       # For details please see the example configuration https://github.com/mineiros-io/pre-commit-hooks/blob/master/.golangci.example.yml
       # - id: gofmt
       # - id: goimports
-      # - id: golint
 
 ```
 
