@@ -24,7 +24,7 @@ linters:
     - goimports
     - gosec
     - gosimple
-    - golint
+    - revive
     - govet
     - ineffassign
     - interfacer
