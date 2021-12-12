@@ -8,8 +8,18 @@ if ! command -v markdown-link-check >/dev/null 2>&1; then
   exit 1
 fi
 
+while getopts ':p' 'OPTKEY'; do
+  case ${OPTKEY} in
+    'p') set +e ;;
+    *)
+        echo "unimplemented option -- ${OPTKEY}" >&2
+        exit 1
+        ;;
+  esac
+done
+
 TMP_CONFIG="$(mktemp)"
-trap "rm -f $TMP_CONFIG;" EXIT
+trap 'rm -f $TMP_CONFIG;' EXIT
 
 cat >"$TMP_CONFIG" <<EOF
 {
@@ -25,3 +35,5 @@ EOF
 for file in "$@"; do
   markdown-link-check -c "$TMP_CONFIG" "$file"
 done
+
+exit 0
