@@ -106,6 +106,7 @@ repos:
       - id: golangci-lint
       - id: phony-targets
       - id: markdown-link-check
+        args: [-p] # When adding the -p flag, markdown-link-check will always with an exit code 0, even if dead links are found
       - id: shellcheck
 
       # The following hooks are redundant when golangci-lint is being. Our recommendation is to use golangci-lint
