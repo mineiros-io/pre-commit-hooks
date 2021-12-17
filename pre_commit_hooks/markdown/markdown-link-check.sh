@@ -18,6 +18,8 @@ while getopts ':p' 'OPTKEY'; do
   esac
 done
 
+shift $((OPTIND-1))
+
 TMP_CONFIG="$(mktemp)"
 trap 'rm -f $TMP_CONFIG;' EXIT
 
