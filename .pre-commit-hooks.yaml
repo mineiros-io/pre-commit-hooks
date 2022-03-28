@@ -115,3 +115,24 @@
       .+\.vendor\/.*$|
       .+\.terraform\/.*$|
     )$
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Terradoc specific hooks
+# ---------------------------------------------------------------------------------------------------------------------
+
+- id: terradoc-fmt
+  name: Terradoc fmt
+  description: The terradoc fmt command is used to rewrite Terradoc input files to a canonical format and style. This command applies a subset of the Terraform language style conventions, along with other minor adjustments for readability similarly to the corresponding terraform hook.
+  entry: pre_commit_hooks/terradoc/fmt.sh
+  language: script
+  args:
+    - README.tfdoc.hcl
+
+- id: terradoc-generate
+  name: Terradoc generate
+  description: The terradoc generate command is used to generate documentation files from a Terradoc input file.
+  entry: pre_commit_hooks/terradoc/generate.sh
+  language: script
+  args:
+    - README.tfdoc.hcl
+    - README.md
