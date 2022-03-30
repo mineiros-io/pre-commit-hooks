@@ -51,9 +51,9 @@ Currently, the following hooks are supported:
   It's fast: on average 5 times faster than gometalinter. It's easy to integrate and use, has nice output and has a
   minimum number of false positives. An example configuration can be found in
   [.golangci.example.yml](https://github.com/mineiros-io/pre-commit-hooks/blob/master/.golangci.example.yml).
-  
+
 #### The following hooks can be configured through golangci-lint and are therefore redundant when golangci-lint is being used
-  
+
 - [gofmt](https://golang.org/cmd/gofmt/): Go fmt is a tool that automatically formats Go `*.go` files to canonical
   format and style.
 - [goimports](https://godoc.org/golang.org/x/tools/cmd/goimports): The goimports command updates import lines in Go
@@ -74,6 +74,13 @@ Currently, the following hooks are supported:
 - [shellcheck](https://github.com/koalaman/shellcheck): ShellCheck is a GPLv3 tool that gives warnings and suggestions
   for bash/sh shell scripts.
 
+### Terradoc
+
+- terradoc-fmt: The terradoc fmt command is used to rewrite
+  Terradoc configuration `*tfdoc.hcl` files to a canonical format and style.
+- terradoc-generate: The terradoc generates a documentation file from
+  Terradoc configuration `*tfdoc.hcl` files
+
 ## Installation & Dependencies
 
 1. Install [pre-commit](https://pre-commit.com/). E.g. `brew install pre-commit`
@@ -87,7 +94,8 @@ Currently, the following hooks are supported:
          go \
          golangci/tap/golangci-lint \
          shellcheck && \
-         npm install -g markdown-link-check
+         npm install -g markdown-link-check && \
+         go install github.com/mineiros-io/terradoc/cmd/terradoc@latest
    ```
 
 ## Usage
@@ -108,6 +116,8 @@ repos:
       - id: markdown-link-check
         args: [-p] # When adding the -p flag, markdown-link-check will always with an exit code 0, even if dead links are found
       - id: shellcheck
+      - id: terradoc-fmt
+      - id: terradoc-generate
 
       # The following hooks are redundant when golangci-lint is being. Our recommendation is to use golangci-lint
       # as the main linter for go since it enables you to run all available linters in parallel.
