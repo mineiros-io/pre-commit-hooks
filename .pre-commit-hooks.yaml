@@ -136,3 +136,11 @@
   args:
     - README.tfdoc.hcl
     - README.md
+
+- id: terradoc-validate
+  name: Terradoc validate
+  description: The terradoc validate command is used to validate documentation variables and outputs against .tf files in the same directory.
+  entry: pre_commit_hooks/terradoc/validate.sh
+  language: script
+  args:
+    - README.tfdoc.hcl
