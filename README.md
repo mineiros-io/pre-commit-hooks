@@ -78,6 +78,8 @@ Currently, the following hooks are supported:
 
 - terradoc-fmt: The terradoc fmt command is used to rewrite
   Terradoc configuration `*tfdoc.hcl` files to a canonical format and style.
+- terradoc-validate: The terradoc fmt command is used validate
+  Terradoc configuration `*tfdoc.hcl` files.
 - terradoc-generate: The terradoc generates a documentation file from
   Terradoc configuration `*tfdoc.hcl` files
 
