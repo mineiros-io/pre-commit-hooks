@@ -144,3 +144,13 @@
   language: script
   args:
     - README.tfdoc.hcl
+
+# ---------------------------------------------------------------------------------------------------------------------
+# Terramate specific hooks
+# ---------------------------------------------------------------------------------------------------------------------
+
+- id: terramate-generate
+  name: Terramate generate
+  description: The terramate generate command is used to generate code from Terramate configuration.
+  entry: pre_commit_hooks/terramate/generate.sh
+  language: script
