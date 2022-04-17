@@ -80,8 +80,12 @@ Currently, the following hooks are supported:
   Terradoc configuration `*tfdoc.hcl` files to a canonical format and style.
 - terradoc-validate: The terradoc fmt command is used validate
   Terradoc configuration `*tfdoc.hcl` files.
-- terradoc-generate: The terradoc generates a documentation file from
+- terradoc-generate: The terradoc generate command generates a documentation file from
   Terradoc configuration `*tfdoc.hcl` files
+
+### Terramate
+
+- terramate-generate: The terramate generate command generates code from Terramate configuration files
 
 ## Installation & Dependencies
 
@@ -118,15 +122,16 @@ repos:
       - id: markdown-link-check
         args: [-p] # When adding the -p flag, markdown-link-check will always with an exit code 0, even if dead links are found
       - id: shellcheck
+      - id: terradoc-validate
       - id: terradoc-fmt
       - id: terradoc-generate
+      - id: terramate-generate
 
       # The following hooks are redundant when golangci-lint is being. Our recommendation is to use golangci-lint
       # as the main linter for go since it enables you to run all available linters in parallel.
       # For details please see the example configuration https://github.com/mineiros-io/pre-commit-hooks/blob/master/.golangci.example.yml
       # - id: gofmt
       # - id: goimports
-
 ```
 
 Once you created the configuration file inside your repository, you must run `pre-commit install` to activate the hooks.
