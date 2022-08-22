@@ -81,11 +81,12 @@ Currently, the following hooks are supported:
 - terradoc-validate: The terradoc fmt command is used validate
   Terradoc configuration `*tfdoc.hcl` files.
 - terradoc-generate: The terradoc generate command generates a documentation file from
-  Terradoc configuration `*tfdoc.hcl` files
+  Terradoc configuration `*tfdoc.hcl` files.
 
 ### Terramate
 
-- terramate-generate: The terramate generate command generates code from Terramate configuration files
+- terramate-fmt: The terramate generate command formats code in Terramate configuration files.
+- terramate-generate: The terramate generate command generates code from Terramate configuration files.
 
 ## Installation & Dependencies
 
