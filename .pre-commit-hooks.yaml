@@ -155,3 +155,10 @@
   entry: pre_commit_hooks/terramate/generate.sh
   language: script
   pass_filenames: false
+
+- id: terramate-fmt
+  name: Terramate fmt
+  description: The terramate generate command is used to format Terramate configuration code.
+  entry: pre_commit_hooks/terramate/fmt.sh
+  language: script
+  pass_filenames: false
