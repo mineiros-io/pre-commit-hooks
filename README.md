@@ -76,17 +76,19 @@ Currently, the following hooks are supported:
 
 ### Terradoc
 
-- terradoc-fmt: The terradoc fmt command is used to rewrite
-  Terradoc configuration `*tfdoc.hcl` files to a canonical format and style.
-- terradoc-validate: The terradoc fmt command is used validate
-  Terradoc configuration `*tfdoc.hcl` files.
-- terradoc-generate: The terradoc generate command generates a documentation file from
-  Terradoc configuration `*tfdoc.hcl` files.
+- [terradoc-fmt](https://github.com/mineiros-io/terradoc): The terradoc fmt command is used to rewrite Terradoc
+    configuration configuration `*.tfdoc.hcl` files to a canonical format and
+    style.
+- [terradoc-generate](https://github.com/mineiros-io/terradoc): The terradoc generate command generates a markdown document
+    from Terradoc configuration `*.tfdoc.hcl` files.
+- [terradoc-validate](https://github.com/mineiros-io/terradoc): The terradoc validate command is used validate Terradoc
+    configuration in `README.tfdoc.hcl` file against Terraform variable
+    definitions.
 
 ### Terramate
 
-- terramate-fmt: The terramate generate command formats code in Terramate configuration files.
-- terramate-generate: The terramate generate command generates code from Terramate configuration files.
+- [terramate-fmt](https://github.com/mineiros-io/terramate): The terramate generate command formats code in Terramate configuration files.
+- [terramate-generate](https://github.com/mineiros-io/terramate): The terramate generate command generates code from Terramate configuration files.
 
 ## Installation & Dependencies
 
