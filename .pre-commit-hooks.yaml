@@ -1,13 +1,17 @@
-# Configuring our pre-commit hooks to be used with pre-commit: https://pre-commit.com/
+# Configuring our pre-commit hooks to be used with https://pre-commit.com/
 
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Terraform specific hooks
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # https://www.terraform.io/docs/commands/fmt.html
 - id: terraform-fmt
   name: Terraform fmt
-  description: The terraform fmt command is used to rewrite Terraform configuration files to a canonical format and style. This command applies a subset of the Terraform language style conventions, along with other minor adjustments for readability.
+  description: |
+    The terraform fmt command is used to rewrite Terraform configuration files
+    to a canonical format and style. This command applies a subset of the
+    Terraform language style conventions, along with other minor adjustments for
+    readability.
   entry: pre_commit_hooks/terraform/fmt.sh
   language: script
   files: \.tf$
@@ -17,7 +21,10 @@
 # https://www.terraform.io/docs/commands/validate.html
 - id: terraform-validate
   name: Terraform validate
-  description: The terraform validate command validates all Terraform configuration files, referring only to the configuration and not accessing any remote services such as remote state, provider APIs, etc.
+  description: |
+    The terraform validate command validates all Terraform configuration files,
+    referring only to the configuration and not accessing any remote services
+    such as remote state, provider APIs, etc.
   entry: pre_commit_hooks/terraform/validate.sh
   language: script
   files: \.tf$
@@ -27,15 +34,17 @@
 # https://github.com/terraform-linters/tflint
 - id: tflint
   name: tflint
-  description: TFLint is a Terraform linter focused on possible errors, best practices, etc. (Terraform >= 0.12)
+  description: |
+    TFLint is a Terraform linter focused on possible errors, best practices,
+    etc. (Terraform >= 0.12)
   entry: pre_commit_hooks/terraform/tflint.sh
   language: script
   files: \.tf$
   exclude: \.+.terraform\/.*$
 
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Golang specific hooks
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # https://golang.org/cmd/gofmt
 - id: gofmt
@@ -49,7 +58,9 @@
 # https://godoc.org/golang.org/x/tools/cmd/goimports
 - id: goimports
   name: goimports
-  description: Command goimports updates your Go import lines, adding missing ones and removing unreferenced ones.
+  description: |
+    Command goimports updates your Go import lines, adding missing ones and
+    removing unreferenced ones.
   entry: pre_commit_hooks/go/goimports.sh
   language: script
   files: \.go$
@@ -62,12 +73,13 @@
   entry: pre_commit_hooks/go/golangci-lint.sh
   language: script
   types: [go]
-  # We can't invoke single files golangci-lint since it expects go packages instead of single files
+  # We can't invoke single files golangci-lint since it expects go packages
+  # instead of single files
   pass_filenames: false
 
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # GNU Make specific hooks
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # Validate targets that are marked as PHONY
 - id: phony-targets
@@ -82,14 +94,16 @@
       .+\.terraform\/.*$|
     )$
 
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Markdown specific hooks
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # https://github.com/tcort/markdown-link-check
 - id: markdown-link-check
   name: markdown-link-check
-  description: Markdown-link-check checks all of the hyperlinks in a markdown text to determine if they are alive or dead.
+  description: |
+    Markdown-link-check checks all of the hyperlinks in a markdown text to
+    determine if they are alive or dead.
   entry: pre_commit_hooks/markdown/markdown-link-check.sh
   language: script
   files: \.md$
@@ -99,14 +113,16 @@
       .+\.terraform\/.*$|
     )$
 
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Bash specific hooks
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 # https://github.com/koalaman/shellcheck
 - id: shellcheck
   name: shellcheck
-  description: ShellCheck is a GPLv3 tool that gives warnings and suggestions for bash/sh shell scripts.
+  description: |
+    ShellCheck is a GPLv3 tool that gives warnings and suggestions for bash/sh
+    shell scripts.
   entry: pre_commit_hooks/shell/shellcheck.sh
   language: script
   files: \.sh$
@@ -116,49 +132,70 @@
       .+\.terraform\/.*$|
     )$
 
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Terradoc specific hooks
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 - id: terradoc-fmt
   name: Terradoc fmt
-  description: The terradoc fmt command is used to rewrite Terradoc input files to a canonical format and style. This command applies a subset of the Terraform language style conventions, along with other minor adjustments for readability similarly to the corresponding terraform hook.
+  description: |
+    The terradoc fmt command is used to rewrite Terradoc input files to a
+    canonical format and style. This command applies a subset of the Terraform
+    language style conventions, along with other minor adjustments for
+    readability similarly to the corresponding terraform hook.
   entry: pre_commit_hooks/terradoc/fmt.sh
   language: script
-  args:
-    - README.tfdoc.hcl
+  require_serial: true
+  files: ^(.*).tfdoc.hcl$
+  exclude: >
+    (?x)^(
+      .+\.vendor\/.*$|
+      .+\.terraform\/.*$|
+    )$
 
 - id: terradoc-generate
   name: Terradoc generate
-  description: The terradoc generate command is used to generate documentation files from a Terradoc input file.
+  description: |
+    The terradoc generate command is used to generate documentation files from a
+    Terradoc input file.
   entry: pre_commit_hooks/terradoc/generate.sh
   language: script
-  args:
-    - README.tfdoc.hcl
-    - README.md
+  require_serial: true
+  files: ^(.*).tfdoc.hcl$
+  exclude: >
+    (?x)^(
+      .+\.vendor\/.*$|
+      .+\.terraform\/.*$|
+    )$
 
 - id: terradoc-validate
   name: Terradoc validate
-  description: The terradoc validate command is used to validate documentation variables and outputs against .tf files in the same directory.
+  description: |
+    The terradoc validate command is used to validate documentation variables
+    and outputs against .tf files in the same directory.
   entry: pre_commit_hooks/terradoc/validate.sh
   language: script
+  files: ^README.tfdoc.hcl$
   args:
     - README.tfdoc.hcl
-
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Terramate specific hooks
-# ---------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 - id: terramate-generate
   name: Terramate generate
-  description: The terramate generate command is used to generate code from Terramate configuration.
+  description: |
+    The terramate generate command is used to generate code from Terramate
+    configuration.
   entry: pre_commit_hooks/terramate/generate.sh
   language: script
   pass_filenames: false
 
 - id: terramate-fmt
   name: Terramate fmt
-  description: The terramate generate command is used to format Terramate configuration code.
+  description: |
+    The terramate generate command is used to format Terramate configuration
+    code.
   entry: pre_commit_hooks/terramate/fmt.sh
   language: script
   pass_filenames: false
